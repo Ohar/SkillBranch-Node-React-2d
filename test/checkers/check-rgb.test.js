@@ -22,6 +22,12 @@ describe(
         );
 
         it(
+          ' rgb( 0, 255 , 64 )  → true', () => {
+            assert.isTrue(checkRgb(' rgb( 0, 255 , 64 ) '));
+          }
+        );
+
+        it(
           'hsl(0, 100%, 0%) → false', () => {
             assert.isFalse(checkRgb('hsl(0, 100%, 0%)'));
           }
