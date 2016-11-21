@@ -2,7 +2,7 @@
 
 const chai          = require('chai'),
       assert        = chai.assert,
-      checkColorWord = require('./../scripts/checkers/check-color-word');
+      checkColorWord = require('./../../scripts/checkers/check-color-word');
 
 describe(
   'checkColorWord', () => {

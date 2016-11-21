@@ -2,7 +2,7 @@
 
 const chai     = require('chai'),
       assert   = chai.assert,
-      checkHsl = require('./../scripts/checkers/check-hsl');
+      checkHsl = require('./../../scripts/checkers/check-hsl');
 
 describe(
   'checkHsl', () => {

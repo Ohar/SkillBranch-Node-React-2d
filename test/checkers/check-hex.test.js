@@ -2,7 +2,7 @@
 
 const chai     = require('chai'),
       assert   = chai.assert,
-      checkHex = require('./../scripts/checkers/check-hex');
+      checkHex = require('./../../scripts/checkers/check-hex');
 
 describe(
   'checkHex', () => {
