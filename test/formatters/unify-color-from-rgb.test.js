@@ -27,6 +27,12 @@ describe(
           }
         );
 
+        it(
+          'rgb(  0, 255  , 64  ) → #00ff40', () => {
+            assert.equal(unifyColorFromRgb('rgb(  0, 255  , 64  )'), '#00ff40');
+          }
+        );
+
       }
     );
   }

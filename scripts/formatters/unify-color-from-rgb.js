@@ -8,7 +8,7 @@ function unifyColorFromRgb (colorInput) {
   logger.trace('Start', colorInput);
   colorInput = colorInput.trim().toLowerCase();
 
-  const [all, red, green, blue] = colorInput.match(/^\D+(\d+),\D+(\d+),\D+(\d+)\D+$/),
+  const [all, red, green, blue] = colorInput.match(/^\s*rgb\(\s*(\d{1,3})\D+(\d{1,3})\D+(\d{1,3})\s*\)\s*$/),
         hex                     = convert.rgb.hex(red, green, blue).toLowerCase(),
         result                  = `#${hex}`;
 
