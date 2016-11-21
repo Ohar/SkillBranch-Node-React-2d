@@ -8,7 +8,7 @@ function unifyColorFromHsl (colorInput) {
   logger.trace('Start', colorInput);
   colorInput = colorInput.toLowerCase();
 
-  const [all, hue, saturation, lightness] = colorInput.match(/^\D+(\d+),\D+(\d+)%,\D+(\d+)%\D+$/),
+  const [all, hue, saturation, lightness] = colorInput.match(/^\s*hsl\(\s*(\d{1,3})\D+(\d{1,3})%\D+(\d{1,3})%\s*\)\s*$/),
         hex                               = convert.hsl.hex(hue, saturation, lightness).toLowerCase(),
         result                            = `#${hex}`;
 
