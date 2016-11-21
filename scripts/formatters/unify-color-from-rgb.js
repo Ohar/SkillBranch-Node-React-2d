@@ -1,12 +1,20 @@
 'use strict';
 
-const convert = require('color-convert');
+const log4js  = require('log4js'),
+      logger  = log4js.getLogger('unifyColorFromRgb'),
+      convert = require('color-convert');
 
 function unifyColorFromRgb (colorInput) {
+  logger.trace('Start', colorInput);
   colorInput = colorInput.trim().toLowerCase();
 
   const [all, red, green, blue] = colorInput.match(/^\D+(\d+),\D+(\d+),\D+(\d+)\D+$/),
-        hex                     = convert.rgb.hex(red, green, blue).toLowerCase();
+        hex                     = convert.rgb.hex(red, green, blue).toLowerCase(),
+        result                  = `#${hex}`;
+
+  logger.trace('[red, green, blue]', [red, green, blue]);
+  logger.trace('hex', hex);
+  logger.trace('Done', result);
 
   return `#${hex}`;
 }

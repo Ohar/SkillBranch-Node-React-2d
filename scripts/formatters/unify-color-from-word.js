@@ -1,10 +1,19 @@
 'use strict';
 
-const COLOR_LIST = require('./../../const/color-dict');
+
+const log4js     = require('log4js'),
+      logger     = log4js.getLogger('unifyColorFromWord'),
+      COLOR_LIST = require('./../../const/color-dict');
 
 function unifyColorFromWord (colorInput) {
+  logger.trace('Start', colorInput);
+
   colorInput = colorInput.trim().toLowerCase();
-  return COLOR_LIST[colorInput];
+
+  const result = COLOR_LIST[colorInput];
+  logger.trace('Done', result);
+
+  return result;
 }
 
 module.exports = unifyColorFromWord;
