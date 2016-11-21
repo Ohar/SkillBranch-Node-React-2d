@@ -1,20 +1,22 @@
 'use strict';
 
-const log4js = require('log4js'),
-      last   = require('lodash/last'),
-      logger = log4js.getLogger('unifyColor');
+const unifyColorFromHex  = require('./formatters/unify-color-from-hex'),
+      unifyColorFromHsl  = require('./formatters/unify-color-from-hsl'),
+      unifyColorFromRgb  = require('./formatters/unify-color-from-rgb'),
+      unifyColorFromWord = require('./formatters/unify-color-from-word');
 
-function unifyColor (colorInput) {
-  logger.trace('Start', colorInput);
-
-  const unifiedColor = '';
-
-  logger.trace('Done', unifiedColor);
-
-  if (unifiedColor) {
-    return unifiedColor;
-  } else {
-    throw new Error('Invalid color');
+function unifyColor (colorInput, format) {
+  switch (format) {
+    case 'hex':
+      return unifyColorFromHex(colorInput);
+    case 'hsl':
+      return unifyColorFromHsl(colorInput);
+    case 'rgb':
+      return unifyColorFromRgb(colorInput);
+    case 'word':
+      return unifyColorFromWord(colorInput);
+    default:
+      return new Error('Invalid color');
   }
 }
 
