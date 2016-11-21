@@ -1,15 +1,19 @@
 'use strict';
 
 function unifyColorFromHex (colorInput) {
-  colorInput = colorInput.toLowerCase().replace('#', '');
+  let color = colorInput.toLowerCase().replace('#', '');
 
-  const isShort = colorInput.length === 3;
+  const isShort = color.length === 3;
 
   if (isShort) {
-    colorInput += colorInput
+    const a = color[0],
+          b = color[1],
+          c = color[2];
+
+    color = `${a}${a}${b}${b}${c}${c}`
   }
 
-  return `#${colorInput}`;
+  return `#${color}`;
 }
 
 module.exports = unifyColorFromHex;

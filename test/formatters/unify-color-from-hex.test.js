@@ -22,6 +22,12 @@ describe(
         );
 
         it(
+          'abc → #aabbcc', () => {
+            assert.equal(unifyColorFromHex('abc'), '#aabbcc');
+          }
+        );
+
+        it(
           'ABC123 → #abc123', () => {
             assert.equal(unifyColorFromHex('#ABC123'), '#abc123');
           }
