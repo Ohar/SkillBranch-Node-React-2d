@@ -15,15 +15,7 @@ function queryHandler (req, res) {
     return res.send(String(unifiedColor));
   } catch (e) {
     logger.error('Fail', e);
-
-    switch (e.message) {
-      case 'Invalid color':
-        res.send(e.message);
-        break;
-      default:
-        res.sendStatus(500);
-        break;
-    }
+    res.send('Invalid color');
   }
 }
 
