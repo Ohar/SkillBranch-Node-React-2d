@@ -3,11 +3,12 @@
 const convert = require('color-convert');
 
 function unifyColorFromRgb (colorInput) {
-  colorInput = colorInput.toLowerCase();
+  colorInput = colorInput.trim().toLowerCase();
 
-  const {red, green, blue} = colorInput.match(/^\D+(\d+)\D+(\d+)\D+(\d+)\D+$/g);
+  const [all, red, green, blue] = colorInput.match(/^\D+(\d+),\D+(\d+),\D+(\d+)\D+$/),
+        hex                     = convert.rgb.hex(red, green, blue).toLowerCase();
 
-  return convert.rgb.hex(red, green, blue);
+  return `#${hex}`;
 }
 
 module.exports = unifyColorFromRgb;
