@@ -16,7 +16,7 @@ function unifyColor (colorInput, format) {
     case 'word':
       return unifyColorFromWord(colorInput);
     default:
-      return new Error('Invalid color');
+      throw new Error('Invalid color');
   }
 }
 
