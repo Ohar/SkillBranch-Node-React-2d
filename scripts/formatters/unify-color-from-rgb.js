@@ -1,6 +1,7 @@
 'use strict';
 
 const log4js  = require('log4js'),
+      inRange = require('lodash/inRange'),
       logger  = log4js.getLogger('unifyColorFromRgb'),
       convert = require('color-convert');
 
@@ -16,7 +17,15 @@ function unifyColorFromRgb (colorInput) {
   logger.trace('hex', hex);
   logger.trace('Done', result);
 
-  return `#${hex}`;
+  if (
+       inRange(red, 0, 256)
+    && inRange(green, 0, 256)
+    && inRange(blue, 0, 256)
+  ) {
+    return result;
+  } else {
+    throw new Error('Invalid color')
+  }
 }
 
 module.exports = unifyColorFromRgb;

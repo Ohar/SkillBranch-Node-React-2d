@@ -1,6 +1,7 @@
 'use strict';
 
 const log4js  = require('log4js'),
+      inRange = require('lodash/inRange'),
       logger  = log4js.getLogger('unifyColorFromHsl'),
       convert = require('color-convert');
 
@@ -16,7 +17,15 @@ function unifyColorFromHsl (colorInput) {
   logger.trace('hex', hex);
   logger.trace('Done', result);
 
-  return result;
+  if (
+    inRange(hue, 0, 360)
+    && inRange(saturation, 0, 101)
+    && inRange(lightness, 0, 101)
+  ) {
+    return result;
+  } else {
+    throw new Error('Invalid color')
+  }
 }
 
 module.exports = unifyColorFromHsl;
