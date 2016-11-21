@@ -1,6 +1,6 @@
 'use strict';
 
-const hslRegexp = /^hsl\(\d{1,3},\s?\d{1,3}%,\s?\d{1,3}%\)$/;
+const hslRegexp = /^hsl\(\s*\d{1,3}\D+\d{1,3}%\D+\d{1,3}%\s*\)$/;
 
 function checkHsl (str) {
   return hslRegexp.test(str)
