@@ -1,9 +1,11 @@
 'use strict';
 
-const COLOR_LIST = require('./../../const/color-list');
+const findKey = require('lodash/findKey');
+
+const COLOR_LIST = require('./../../const/color-dict');
 
 function checkColorWord (str) {
-  return Boolean(COLOR_LIST.find(str))
+  return Boolean(findKey(COLOR_LIST, color => color === `#${str}`));
 }
 
 module.exports = checkColorWord;
